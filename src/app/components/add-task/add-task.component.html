@@ -1,0 +1,8 @@
+<div>
+    <h2 class="text-center">Add a New Task</h2>
+    <input #title type="text"  placeholder="task title ">
+    <input #date type="date" placeholder="task date">
+    <textarea #desc placeholder="task description"></textarea>
+    <button  (click)="saveTask(title, desc,date)">Save</button>
+    <button  (click)="cancelTask()">Cancel</button>
+</div>

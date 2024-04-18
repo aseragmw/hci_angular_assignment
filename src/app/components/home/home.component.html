@@ -1,0 +1,28 @@
+<div class="container">
+
+    <div>
+        <a routerLink="/add-task" >Add Task</a>
+    </div>
+    <div *ngIf="tasksService.tasks.length==0">
+    <p>
+      No tasks found
+    </p>
+    </div>
+
+    <div *ngIf="tasksService.tasks.length!=0">
+
+      <ul >
+        <li *ngFor="let task of tasksService.tasks; index as i">
+            <a [routerLink]="['/task',i]">
+            {{task.title}}
+            {{task.description}}
+            {{task.date}}
+            </a>
+            <label>
+              <input type="checkbox" [checked]="task.isCompleted" (change)="toggleCheckbox(i)">
+            </label>
+          <button (click)="deleteTask(i)">Delete</button>
+        </li>
+      </ul>
+      </div>
+</div>
